@@ -8,7 +8,7 @@
 
 ## Requirements
 
-You will need to supply environment variables in a file called `local.settings.json` in the project root. Copy this and fill in the blanks:
+You will need to supply environment variables in a file called `local.settings.json` in the project root. Copy this and fill in the blanks, using information supplied by a Salesforce admin:
 
 ```
 {
