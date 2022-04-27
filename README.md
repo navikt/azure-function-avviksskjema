@@ -2,7 +2,7 @@
 
 ## This Azure function does the following
 
-1. Accepts a POST request containing a form submission
+1. Accepts a POST request containing a form submission using [avviksskjema in SharePoint](https://github.com/navikt/sharepoint-webpart-avviksskjema).
 2. Gets an authentication token from Salesforce
 3. POSTs the form submission to Salesforce with the attached authentication token
 
