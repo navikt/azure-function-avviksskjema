@@ -24,7 +24,7 @@ const getRequestURI = function (mode: string) {
     let uri = process.env.API_BASE_URL;
     switch (mode) {
         case 'post':
-            uri += 'Avviksskjema'
+            uri += 'Avviksskjema/'
         case 'get':
             uri += 'avvik/getCase'
         default:
@@ -66,9 +66,11 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
             } catch (error) {
                 // Try to return error as is from Salesforce (response statuses for errors seem to always be 500)
+                const body = error.isAxiosError ? (error as AxiosError).response.data : 'Internal server error.';
+                context.log(body.toString());
                 context.res = {
                     status: error.isAxiosError ? (error as AxiosError).response.status : 500,
-                    body: error.isAxiosError ? (error as AxiosError).response.data : 'Internal server error.'
+                    body
                 };
             }
 
